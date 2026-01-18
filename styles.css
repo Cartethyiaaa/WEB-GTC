@@ -1,0 +1,71 @@
+:root {
+    --navy: #1e3a8a;
+    --red-japan: #bc002d;
+    --ig-gradient: linear-gradient(45deg, #f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%);
+}
+
+body {
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar { width: 8px; }
+::-webkit-scrollbar-track { background: #f1f5f9; }
+::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 4px; }
+::-webkit-scrollbar-thumb:hover { background: #94a3b8; }
+
+.nav-link { position: relative; }
+.nav-link::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -4px;
+    left: 0;
+    background-color: var(--navy);
+    transition: width 0.3s ease;
+}
+.nav-link:hover::after { width: 100%; }
+
+.text-shadow-glow { text-shadow: 0 4px 12px rgba(0, 0, 0, 0.4); }
+.bg-instagram-gradient { background: var(--ig-gradient); }
+
+/* Hero Animation Initial State */
+.hero-content { opacity: 0; transform: translateY(30px); }
+
+/* Modern Table Utilities */
+#program-comparison-container table th {
+    white-space: nowrap;
+}
+
+/* Timeline Custom Lines & Layouts */
+@media (min-width: 1024px) {
+    .timeline-step::before {
+        content: '';
+        position: absolute;
+        width: 100%;
+        height: 4px;
+        background: #f1f5f9;
+        top: 40px;
+        left: 50%;
+        z-index: 0;
+    }
+    .timeline-step:last-child::before { display: none; }
+}
+
+/* Responsive Overrides */
+@media (max-width: 1023px) {
+    .timeline-step:not(:last-child) {
+        margin-bottom: 3rem;
+    }
+}
+
+/* Transitions */
+.hover-card {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.hover-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1);
+}
